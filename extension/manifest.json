@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "Web-Image-Resizer",
+  "description": "Just use it and be happy.",
+  "version": "1.2.1",
+  "default_locale": "en",
+
+  "browser_action": {
+    "default_icon": "icons/ico64.png",
+    "default_popup": "popup/popup.html"
+  },
+
+  "icons": {
+  	"64":  "icons/ico64.png",
+  	"128": "icons/ico128.png",
+  	"256": "icons/ico256.png"
+  },
+
+  "content_scripts": [
+  	{
+ 	  "matches": ["<all_urls>"],
+ 	  "js": ["js/startScript.js"],
+      "run_at": "document_end"
+ 	}
+  ],
+
+  "permissions": [
+    "<all_urls>",
+    "tabs"
+  ]
+}
