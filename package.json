@@ -1,0 +1,27 @@
+{
+  "name": "chrome-expander",
+  "version": "1.2.2",
+  "description": "Extension give Chrome browser more functionality.",
+  "main": "js/startPage.js",
+  "scripts": {
+    "test": "testing"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubaissen/chrome-expander.git"
+  },
+  "keywords": [
+    "chrome",
+    "expander",
+    "extension",
+    "chex"
+  ],
+  "author": "kubaissen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kubaissen/chrome-expander/issues"
+  },
+  "homepage": "https://github.com/kubaissen/chrome-expander#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}

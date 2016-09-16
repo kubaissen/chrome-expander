@@ -1,16 +1,19 @@
-const webImageResizer = (function () {
+/** @module */
+(function() {
     'use strict';
 
+    /** @var {object.}  */
     var imagesCollection = document.querySelectorAll('img');
+
     if ( imagesCollection.length ) {
         for ( let i = 0; i < imagesCollection.length; i++ ) {
-            console.log(imagesCollection[i].naturalHeight);
+            console.log(typeof imagesCollection);
             imagesCollection[i].addEventListener('load', setImageNaturalSize(imagesCollection[i]));
         }
     }
     /**
      * Do things right!
-     * @param img (object)
+     * @param {...object} img - html element
      */
     function setImageNaturalSize(img) {
         if ( img.width !== img.naturalWidth || img.height !== img.naturalHeight ) {
@@ -18,7 +21,6 @@ const webImageResizer = (function () {
             img.height = img.style.height = img.naturalHeight;
         }
     }
-
 
 })();
 
