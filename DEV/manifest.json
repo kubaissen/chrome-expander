@@ -1,0 +1,72 @@
+{
+  "manifest_version": 2,
+
+  "name": "Chrome Expander",
+  "short_name": "Ch-Ex",
+  "description": "Just use it and be happy.",
+  "version": "1.2.2",
+  "homepage_url": "https://github.com/kubaissen/chrome-expander",
+  "author" : {
+    "name": "Jarek",
+    "nickname": "J.Kubai Ł",
+    "email": "kubaissen@gmail.pl"
+  },
+
+  "default_locale": "en",
+
+  "browser_action": {
+    "default_icon": "icons/extension72C.png"
+  },
+
+  "icons": {
+  	"48": "icons/extension48C.png",
+  	"72": "icons/extension72C.png",
+  	"96": "icons/extension96C.png",
+  	"144": "icons/extension144C.png",
+  	"192": "icons/extension192C.png"
+  },
+
+  "content_scripts": [
+  	{
+ 	  "matches": [
+//        "*://*/*"
+        "<all_urls>"
+      ],
+ 	  "js": [
+        "js/startScript.js",
+        "js/csMessage.js"
+        ],
+      "css": [
+        "js/css.css"
+      ]
+    //  "run_at": "document_end"
+ 	}
+  ],
+
+  "background": {
+    "scripts": [
+      "bg/mod/badges.js",
+      "bg/mod/convert.js",
+      "bg/!prime.js",
+      "bg/ping.js",
+      "bg/message.js"
+    ],
+    "persistent": false
+  },
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "contextMenus",
+    "management",
+    "notifications",
+    "tabCapture",
+    "displaySource"
+    ],
+  "optional_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    "popup/popup.html"
+  ]
+}

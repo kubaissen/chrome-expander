@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>This is setting's form.</title>
+    <meta charset="UTF-8">
+    <link href="/popup/normalize.css" rel="stylesheet">
+    <link href="/popup/iconfont/material-icons.css" rel="stylesheet">
+    <link href="/popup/just.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="core">
+        <div id="navigator" class="darker bg watermark">
+            <ul id="buttons-List" class="menu buttonsList">
+                <li>
+                    <i id="closeButton" class="material-icons button">close</i>
+                </li>
+            </ul>
+        </div>
+        <div id="mid" class="contentBG watermark">
+            <i class="material-icons">link</i>
+            <i class="material-icons big">settings</i>
+            <form name="Panel">
+                <fieldset>
+                    <label for="textToLinks"><input id="textToLinks" type="checkbox" >Zamieniaj napisy na linki.</label><br/>
+                    <label for="resizeImages"><input id="resizeImages" type="checkbox" >Wyszukuj zdjęcia ze mniejszonym rozmiarem.</label><br/>
+                    <label for="text">Its a label!</label>
+                    <input id="text" type="text">
+                    <button id="button" type="button" class="button">GO</button>
+                </fieldset>
+            </form>
+        </div>
+        <div id="footer" class="darker bg redText smallText">
+        </div>
+    </div>
+    <script src="popup.js"></script>
+
+    <!--<div id="status">-->
+    <!--<span>here</span>-->
+    <!--<span>come</span>-->
+    <!--<span>settings</span>-->
+    <!--</div>-->
+</body>
+
+</html>
