@@ -1,15 +1,12 @@
-Chrome Expander
-=================
+# Chrome Expander
 
-####**chrome extension**
-this software add functionality to google.
--
+Is a **chrome extension** that give Chrome new functionality.
 
-#####functions:
+## Functions
+
 - Set original size to images
-- TODO: Search site for certain file type and giv
-- TODO: Set text to clickable string
+- [TO DO] Search site for certain file type's;
 
 Warning! Using this software making people instant happy.
 
-**Chrome Expander** is my first repository. This mean that i just loose my Github virginity with this commit.
+Proud introduce - **Chrome Expander** - my first repository. This mean that I'm just loose my [GitHub](https://github.com/) virginity with this commit.

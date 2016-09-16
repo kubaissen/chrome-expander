@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>This is setting's form.</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+            font-size: 100%;
+        }
+
+        #status {
+            /* avoid an excessively wide status text */
+            white-space: pre;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 400px;
+            width: 400px;
+        }
+        #core {
+            max-width: 400px;
+            width: 400px;
+        }
+    </style>
+    <script src="../settings.js"></script>
+</head>
+<body>
+<div id="core">
+    <form name="Panel">
+        <fieldset>
+            <legend>Control Panel</legend>
+            With spotted links to image:
+            <select name="img-resize" title="img-select" onchange="alert(this.value)">
+                <option value="none"  name="img-link">do nothing</option>
+                <option value="bot"   name="img-link">add on bottom of site</option>
+                <option value="place" name="img-link">replace in spotted position</option>
+                <!--<button type="button" onclick="alert('lol')">GO</button>-->
+            </select>
+
+        </fieldset>
+    </form>
+
+</div>
+
+<!--<div id="status">-->
+    <!--<span>here</span>-->
+    <!--<span>come</span>-->
+    <!--<span>settings</span>-->
+<!--</div>-->
+</body>
+</html>
+
