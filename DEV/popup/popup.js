@@ -1,63 +1,45 @@
-/* globals chrome */
-'use strict';
+/* global chrome */
 
-/**
-     * @description Listening for @event - Chrome-Expander button clicked.
-     
-    chrome.browserAction.onClicked.addListener((tab) => {
+// var console = chrome.extension.getBackgroundPage().console
+/// <reference path="../../.vscode/ref/chrome.d.ts"/>
+/// <reference path="../../.vscode/ref/chrome-cast.d.ts"/>
+/// <reference path="../../.vscode/ref/chrome-app.d.ts"/>
+(() => {
+    'use strict';
 
-        // chrome.runtime.sendMessage({fn: 'popup', message: 'chrome popup button pressed'});
+    let button = document.getElementById('button');
+    let textBox = document.querySelector('input#text');
+    let closeButton = document.querySelector('i#closeButton');
 
-        chrome.runtime.sendMessage({fn: 'iconClick', extra: tab, time: Date.now()}, function(response){
-            console.log(response);
+    closeButton.addEventListener('mouseover' && 'click', function(e) {
+        chrome.tabs.getCurrent(function(tab) {
+            chrome.tabs.sendMessage(tab.id, {
+                fn: 'closeFrame',
+                tab: tab,
+            }, (response) => {
+                response ? console.log(response) : response = null;
+            });
+
         });
-        return true;
+    }, false);
 
-    });
-*/
-// var console = chrome.extension.getBackgroundPage().console;
 
-let button = document.getElementById('button');
-let textBox = document.querySelector('input#text');
-let closeButton = document.querySelector('i#closeButton');
+    // chrome.runtime.sendMessage({ testMessage: true, get: 'title' }, function(response) {
+    //     console.log(response, textBox.value);
+    //     textBox.value = response.title;
+    // });
 
-function getTabId() {
-    chrome.tabs.getCurrent(function(tab) {
-        return tab;
-    });
-}
+    //var console = chrome.extension.getBackgroundPage().console;
 
-closeButton.addEventListener('mouseover' && 'click', function(e) {
-
-    chrome.tabs.getCurrent(function(tab) {
-        chrome.tabs.sendMessage(tab.id, {
-            from: 'popup',
-            fn: 'iconClick',
-            extra: e,
-            time: Date.now(),
-            location: window.location
+    button.addEventListener('click', function() {
+        chrome.runtime.sendMessage({
+            get: 'textBoxText',
+            val: textBox.value,
+            fn: 'iconClick'
         }, function(response) {
-            console.log(response);
+            textBox.value = response.txt;
         });
-
-    });
-}, false);
+    }, false);
 
 
-// chrome.runtime.sendMessage({ testMessage: true, get: 'title' }, function(response) {
-//     console.log(response, textBox.value);
-//     textBox.value = response.title;
-// });
-
-//var console = chrome.extension.getBackgroundPage().console;
-
-
-button.addEventListener('click', function() {
-    chrome.runtime.sendMessage({
-        get: 'textBoxText',
-        val: textBox.value,
-        fn: 'iconClick'
-    }, function(response) {
-        textBox.value = response.txt;
-    });
-}, false);
+})();

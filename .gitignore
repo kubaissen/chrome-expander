@@ -1,4 +1,5 @@
-.idea
+#project files
+.*
 DEV
 # Project Data
 snippet

@@ -1,19 +1,22 @@
-var WebImagesResizer = (function() {
-    'use strict';
+/// <reference path="chrome.d.ts"/>
+/// <reference path="chrome-cast.d.ts"/>
+/// <reference path="chrome-app.d.ts"/>
 
-    var hyperlinks = $$('a');// || document.querySelectorAll('a');
+let WebImagesResizer = (() => {
+    'use strict';
+    var hyperlinks = $$('a'); // || document.querySelectorAll('a');
     var urlArray = getUrlFromLinks(hyperlinks);
 
     function getUrlFromLinks(links) {
         var array = [];
-        for ( let i = 0; i < links.length; i++ ) {
+        for (let i = 0; i < links.length; i++) {
             var urlString = links[i].href;
-            if ( urlString.length === 0 ) {
+            if (urlString.length === 0) {
                 continue;
             }
             urlString = linkChecker(urlString);
 
-            if ( array.indexOf(urlString) !== -1 ) {
+            if (array.indexOf(urlString) !== -1) {
                 continue;
             }
             array.push(urlString);
@@ -21,7 +24,7 @@ var WebImagesResizer = (function() {
         }
         return array;
     }
-
+    
     function linkChecker(url) {
         if (url.match(/.(\#|\@).[^$]/gmi)) {
             return false;
@@ -35,7 +38,7 @@ var WebImagesResizer = (function() {
     function imagesFromLinks(url) {
 
         var img = new Image();
-        img.addEventListener('error', function (e) {
+        img.addEventListener('error', function(e) {
             img.remove();
         }, false);
 
@@ -51,5 +54,6 @@ var WebImagesResizer = (function() {
         return true;
 
     }
+
 
 })();
